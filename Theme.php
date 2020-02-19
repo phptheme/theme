@@ -25,11 +25,6 @@ class Theme implements ThemeInterface
 
     public function widget($class, $params = [])
     {
-        if (!is_array($params) && !$params)
-        {
-            return '';
-        }
-
         $widget = $this->createWidget($class, $params);
         
         return $widget->toString();
@@ -37,6 +32,8 @@ class Theme implements ThemeInterface
 
     public function createWidget(string $class, array $params = [])
     {
+        $params['_theme'] = $this;
+
         $widget = new $class($params);
 
         return $widget;
