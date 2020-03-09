@@ -9,6 +9,8 @@ namespace PhpTheme\Theme;
 class Theme implements ThemeInterface
 {
 
+    public $lang = 'en';
+
     public function __construct()
     {
     }
